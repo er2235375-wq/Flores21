@@ -4,56 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jardín de Flores Amarillas | Digitalbox s.w</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
         body { background-color: #050511; color: #ffffff; min-height: 100vh; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; align-items: center; position: relative; }
-        header { z-index: 10; text-align: center; padding: 15px; margin-top: 5px; }
-        header h1 { font-size: 1.2rem; font-weight: 600; letter-spacing: 2px; background: linear-gradient(135deg, #ffe55c, #ffb703, #ff758c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 20px rgba(255, 183, 3, 0.4); }
-        header p { font-size: 0.7rem; color: #d0cce1; margin-top: 3px; }
-        .container { position: relative; width: 100%; max-width: 400px; height: 350px; z-index: 10; display: flex; justify-content: center; align-items: center; }
-        .flower-item { position: absolute; font-size: 1.8rem; cursor: pointer; animation: fall linear infinite; user-select: none; transition: transform 0.1s; filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6)); }
-        .flower-item:active { transform: scale(1.4); }
+        
+        header { z-index: 10; text-align: center; padding: 12px 10px; margin-top: 5px; }
+        header h1 { font-size: 1.15rem; font-weight: 700; letter-spacing: 2px; background: linear-gradient(135deg, #fff3b0, #ffb703, #fb8500); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 25px rgba(255, 183, 3, 0.5); }
+        header p { font-size: 0.68rem; color: #d0cce1; margin-top: 2px; }
+
+        .container { position: relative; width: 100%; max-width: 400px; height: 320px; z-index: 10; display: flex; justify-content: center; align-items: center; }
+        
+        .flower-item { position: absolute; font-size: 1.9rem; cursor: pointer; animation: fall linear infinite; user-select: none; transition: transform 0.1s; filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8)); }
+        .flower-item:active { transform: scale(1.5); }
         @keyframes fall {
-            0% { transform: translateY(-50px) rotate(0deg); opacity: 0; }
+            0% { transform: translateY(-40px) rotate(0deg); opacity: 0; }
             15% { opacity: 1; }
             85% { opacity: 1; }
-            100% { transform: translateY(380px) rotate(360deg); opacity: 0; }
+            100% { transform: translateY(340px) rotate(360deg); opacity: 0; }
         }
-        .message-modal { position: absolute; bottom: 5px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 340px; background: rgba(25, 22, 38, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 18px; padding: 14px; text-align: center; z-index: 20; box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
-        .message-modal h3 { font-size: 0.75rem; color: #ffb703; margin-bottom: 4px; letter-spacing: 1px; text-transform: uppercase; }
-        .message-modal p { font-size: 0.85rem; color: #eae8f2; font-style: italic; font-weight: 300; line-height: 1.3; }
-        .cta-footer { z-index: 10; width: 100%; padding: 12px 20px 20px; background: linear-gradient(to top, rgba(5,5,17,0.95), transparent); text-align: center; }
-        .btn-cta { background: linear-gradient(135deg, #ffb703, #fb8500); color: #050511; text-decoration: none; border: none; border-radius: 50px; padding: 11px 22px; font-size: 0.75rem; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 20px rgba(255, 183, 3, 0.4); }
-        .brand-tag { font-size: 0.6rem; color: #8b85a1; margin-top: 6px; display: block; letter-spacing: 1px; }
+
+        .message-modal { position: absolute; bottom: 2px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 350px; background: rgba(22, 19, 35, 0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1.5px solid rgba(255, 183, 3, 0.4); border-radius: 16px; padding: 12px 14px; text-align: center; z-index: 20; box-shadow: 0 10px 30px rgba(0,0,0,0.7); }
+        .message-modal h3 { font-size: 0.72rem; color: #ffb703; margin-bottom: 3px; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; }
+        .message-modal p { font-size: 0.82rem; color: #f3f0ff; font-style: italic; font-weight: 300; line-height: 1.35; }
+
+        /* Botón de WhatsApp súper llamativo y fijo abajo */
+        .cta-footer { z-index: 30; width: 100%; padding: 10px 15px 18px; background: linear-gradient(to top, rgba(5,5,17,0.98) 70%, transparent); text-align: center; display: flex; flex-direction: column; align-items: center; }
+        .btn-cta { background: linear-gradient(135deg, #25d366, #128c7e); color: white; text-decoration: none; border: none; border-radius: 50px; padding: 12px 22px; font-size: 0.8rem; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 25px rgba(37, 211, 102, 0.6); animation: bounceBtn 2s infinite; border: 1px solid rgba(255,255,255,0.2); }
+        .btn-cta i { font-size: 1.1rem; }
+        @keyframes bounceBtn {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+        .brand-tag { font-size: 0.6rem; color: #9a93b5; margin-top: 6px; display: block; letter-spacing: 1.2px; font-weight: 500; }
     </style>
 </head>
 <body>
     <header>
-        <h1>FLORES AMARILLAS</h1>
-        <p>Toca cada flor que cae para hacerla estallar y ver su mensaje 🌻🌷</p>
+        <h1>FLORES AMARILLAS 🌻</h1>
+        <p>Toca cada flor que cae para descubrir un mensaje especial</p>
     </header>
+
     <div class="container" id="skyArea">
         <div class="message-modal" id="modalCard">
-            <h3 id="flowerTitle">✨ ¡Atrapa una flor! ✨</h3>
-            <p id="flowerText">Girasoles y tulipanes llenos de amor esperando por ti.</p>
+            <h3 id="flowerTitle">✨ Toca cualquier flor ✨</h3>
+            <p id="flowerText">Girasoles y tulipanes cargados de amor para ti.</p>
         </div>
     </div>
+
     <div class="cta-footer">
         <a href="https://wa.me/50489077315?text=Hola%20Digitalbox%20s.w,%20vi%20la%20página%20de%20flores%20amarillas%20y%20quiero%20cotizar%20un%20regalo%20digital." class="btn-cta" target="_blank">
-            <i class="fa-brands fa-whatsapp"></i> ¡Crea tu propio detalle aquí!
+            <i class="fa-brands fa-whatsapp"></i> ¡Quiero un detalle así para mi amor!
         </a>
         <span class="brand-tag">DIGITALBOX S.W • Regalos Digitales Únicos</span>
     </div>
+
     <script>
-        const symbols = ['🌻', '🌷', '🌼', '💛'];
+        const symbols = ['🌻', '🌷', '🌼', '💛', '✨'];
         const phrases = [
-            { title: "🌻 Girasol del Alma", text: "“Dicen que regalar flores amarillas ilumina toda la vida... tú iluminas la mía cada día.”" },
-            { title: "🌷 Tulipán Brillante", text: "“Eres esa coincidencia más hermosa que llegó a florecer en mi jardín.”" },
-            { title: "💛 Destino Dorado", text: "“No hay distancia ni tiempo que apague el brillo de este amor que siento por ti.”" },
-            { title: "🌼 Promesa de Amor", text: "“Quiero verte sonreír hoy, mañana y en cada primavera de nuestras vidas.”" }
+            { title: "🌻 Girasol del Alma", text: "“Dicen que regalar flores amarillas ilumina toda la vida... tú iluminas la mía cada instante.”" },
+            { title: "🌷 Tulipán Brillante", text: "“Eres esa coincidencia más hermosa que llegó a florecer en mi jardín y en mi corazón.”" },
+            { title: "💛 Destino Dorado", text: "“No hay distancia ni tiempo que apague el brillo de este amor tan sincero que siento por ti.”" },
+            { title: "🌼 Promesa de Primavera", text: "“Quiero verte sonreír hoy, mañana y en cada primavera de nuestras vidas juntos.”" },
+            { title: "✨ Luz de Mis Ojos", text: "“Si el universo me diera a elegir otra vida, en todas ellas te volvería a buscar.”" },
+            { title: "🌟 Tu Sonrisa", text: "“Tu sonrisa es el sol que le da calor y sentido a mis días más grises.”" },
+            { title: "💖 Amor Eterno", text: "“Contigo aprendí que el amor verdadero se construye con detalles y momentos inolvidables.”" }
         ];
+
         const skyArea = document.getElementById('skyArea');
         function createFlower() {
             const flower = document.createElement('div');
@@ -61,18 +79,21 @@
             flower.innerText = symbols[Math.floor(Math.random() * symbols.length)];
             flower.style.left = Math.random() * 85 + '%';
             flower.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            
             flower.addEventListener('click', () => {
                 const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
                 document.getElementById('flowerTitle').innerText = randomPhrase.title;
                 document.getElementById('flowerText').innerText = randomPhrase.text;
-                flower.style.transform = 'scale(2)';
+                flower.style.transform = 'scale(1.6)';
                 flower.style.opacity = '0';
                 setTimeout(() => flower.remove(), 200);
             });
+
             skyArea.appendChild(flower);
             setTimeout(() => { flower.remove(); }, 6000);
         }
-        setInterval(createFlower, 600);
+
+        setInterval(createFlower, 550);
     </script>
 </body>
 </html>
